@@ -6,3 +6,16 @@ const totalPriceElement = document.getElementById('total-price');
 const placeOrderButton = document.getElementById('place-order');
 const orderSummary = document.getElementById('order-summary');
 
+// Task 3 -- Calculate Total Price Dynamically
+
+// Calculate total price when product or quantity changes
+function updateTotalPrice() {
+    const productPrice = parseFloat(productSelector.value);
+    const quantity = parseInt(quantityInput.value);
+    const totalPrice = productPrice * quantity;
+    
+    totalPriceElement.textContent = totalPrice.toFixed(2);
+}
+
+productSelector.addEventListener('change', updateTotalPrice);
+quantityInput.addEventListener('input', updateTotalPrice);
